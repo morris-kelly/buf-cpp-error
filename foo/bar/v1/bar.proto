@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package bar.v1;
+
+import "baz/v1/baz.proto";
+
+service BarService {
+  rpc GetBar(GetBarRequest) returns (GetBarResponse);
+  rpc GetBaz(GetBazRequest) returns (GetBazResponse);
+}
+
+message GetBarRequest {
+  string bar_id = 1;
+}
+
+message GetBarResponse {
+  string bar_name = 1;
+}
+
+message GetBazRequest {
+  string baz_id = 1;
+}
+
+message GetBazResponse {
+  baz.v1.Baz baz = 1;
+}
